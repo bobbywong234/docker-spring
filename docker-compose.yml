@@ -1,0 +1,15 @@
+version: '3'
+services:
+  hello-app:
+    restart: always
+    build: ./
+    image: hello_image
+    networks:
+      - book_network
+    expose:
+      - "8080"
+    ports:
+      - 2377:8080
+networks:
+  book_network:
+    driver: overlay
